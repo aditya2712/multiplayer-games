@@ -1,16 +1,17 @@
 import { Room } from "@colyseus/core";
-import { MyRoomState } from "./schema/MyRoomState.js";
+import { TicTacToeState } from "./schema/TicToeToeState.js";
 
-export class MyRoom extends Room {
+export class TicTacToeRoom extends Room {
 
   onCreate (options) {
-    this.setState(new MyRoomState());
+    this.setState(new TicTacToeState());
 
     this.onMessage("type", (client, message) => {
       //
       // handle "type" message.
       //
     });
+    this.maxClients = 2
 
   }
 
